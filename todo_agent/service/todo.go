@@ -7,6 +7,8 @@ import (
 	"github.com/bytedance/sonic"
 )
 
+var todo *todoService
+
 type TodoService interface {
 	AddTodo(ctx context.Context, param *api.TodoAddParams) error
 	DeleteTodo(ctx context.Context, content string) error
@@ -19,9 +21,14 @@ type todoService struct {
 }
 
 func NewTodoService(todoList repository.TodoList) TodoService {
-	return &todoService{
+	todo = &todoService{
 		TodoList: todoList,
 	}
+	return todo
+}
+
+func GetTodoService() TodoService {
+	return todo
 }
 
 func (t *todoService) AddTodo(ctx context.Context, param *api.TodoAddParams) error {

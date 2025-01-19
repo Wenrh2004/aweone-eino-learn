@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"github.com/Wenrh2004/eino-learn-demo/api"
 	"github.com/Wenrh2004/eino-learn-demo/service"
+	"github.com/cloudwego/eino/compose"
+	"github.com/cloudwego/eino/schema"
 	"log"
 	"strconv"
 	"time"
@@ -15,15 +17,26 @@ type TodoAdapter interface {
 	DeleteTodo(ctx context.Context)
 	UpdateTodo(ctx context.Context)
 	ListTodo(ctx context.Context)
+	QueryAssistant(ctx context.Context)
 }
 
 type todoAdapter struct {
 	service.TodoService
+	msg   []*schema.Message
+	agent compose.Runnable[[]*schema.Message, []*schema.Message]
 }
 
-func NewTodoAdapter(service service.TodoService) TodoAdapter {
+func NewTodoAdapter(service service.TodoService, agent compose.Runnable[[]*schema.Message, []*schema.Message]) TodoAdapter {
+	messages := []*schema.Message{
+		{
+			Role:    schema.Assistant,
+			Content: "Hello, I'm Eino, your assistant. I am good at schedule planning, transaction management and data sorting, which can help you make efficient work plans and improve work efficiency.",
+		},
+	}
 	return &todoAdapter{
 		TodoService: service,
+		msg:         messages,
+		agent:       agent,
 	}
 }
 
@@ -175,4 +188,21 @@ func (t *todoAdapter) ListTodo(ctx context.Context) {
 		log.Fatalf("list todo failed, err = %v", err)
 	}
 	fmt.Println(listTodo)
+}
+
+func (t *todoAdapter) QueryAssistant(ctx context.Context) {
+	fmt.Print("Please input the query of the assistant: ")
+	var query string
+	_, err := fmt.Scanln(&query)
+	if err != nil {
+		log.Fatalf("fmt.Scanln failed, err = %v", err)
+	}
+	t.msg = append(t.msg, schema.UserMessage(query))
+	resp, err := t.agent.Invoke(ctx, t.msg)
+	if err != nil {
+		fmt.Printf("query assistant failed, err = %v, please try again\n", err)
+	}
+	for i, message := range resp {
+		fmt.Printf("message[%d][%s]: %s\n", i, message.Role, message.Content)
+	}
 }

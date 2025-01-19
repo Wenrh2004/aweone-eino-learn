@@ -4,6 +4,9 @@ import (
 	"context"
 	"fmt"
 	"github.com/Wenrh2004/eino-learn-demo/adapter"
+	"github.com/Wenrh2004/eino-learn-demo/agent"
+	"github.com/Wenrh2004/eino-learn-demo/agent/utils"
+	"github.com/Wenrh2004/eino-learn-demo/config"
 	"github.com/Wenrh2004/eino-learn-demo/repository"
 	"github.com/Wenrh2004/eino-learn-demo/service"
 	"log"
@@ -12,9 +15,14 @@ import (
 
 func main() {
 	ctx := context.Background()
+	conf := config.NewConfig("config.yaml")
+
 	todoList := repository.NewTodoList()
 	todoService := service.NewTodoService(todoList)
-	todoAdapter := adapter.NewTodoAdapter(todoService)
+	tools := utils.NewTools(ctx, conf, todoService)
+	chatModel := utils.NewChatModel(ctx, conf)
+	todoAgent := agent.NewAgent(ctx, tools, chatModel)
+	todoAdapter := adapter.NewTodoAdapter(todoService, todoAgent)
 	NewRobot(ctx, todoAdapter)
 }
 
@@ -26,7 +34,8 @@ func NewRobot(ctx context.Context, a adapter.TodoAdapter) {
 		fmt.Println("2. remove a todo item")
 		fmt.Println("3. update a todo item")
 		fmt.Println("4. list the todo items")
-		fmt.Println("5. quit")
+		fmt.Println("5. query assistant")
+		fmt.Println("6. quit")
 		fmt.Print("Please input the number of the question: ")
 		_, err := fmt.Scanln(&userInput)
 		if err != nil {
@@ -46,6 +55,8 @@ func NewRobot(ctx context.Context, a adapter.TodoAdapter) {
 		case 4:
 			a.ListTodo(ctx)
 		case 5:
+			a.QueryAssistant(ctx)
+		case 6:
 			return
 		default:
 			fmt.Println("invalid input")

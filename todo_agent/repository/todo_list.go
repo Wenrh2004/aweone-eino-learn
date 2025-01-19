@@ -26,7 +26,7 @@ type todoList struct {
 func NewTodoList() TodoList {
 	uidGenerator, err := uuid.NewUUID()
 	if err != nil {
-		return nil
+		panic(err)
 	}
 	return &todoList{
 		uid:   &uidGenerator,

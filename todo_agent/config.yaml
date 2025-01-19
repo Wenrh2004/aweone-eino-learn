@@ -1,0 +1,10 @@
+openai:
+  model: deepseek-chat
+  api_key: sk-b120fd374efd47c2b46f48eb67bd0130
+  base_url: https://api.deepseek.com
+  temperature: 0.7
+
+ddg:
+  proxy: http://localhost:7897
+  timeout: 30
+  cache: true
