@@ -1,0 +1,12 @@
+app:
+  name: travel_assistant
+  agent:
+    max_step: 5
+  llm:
+    api_key: YOUR_API_KEY
+    base_url: YOUR_BASE_URL
+    region: YOUR_REGION
+    model: YOUR_MODEL
+  amap:
+    key: YOUR_AMAP_KEY
+    timeout: 60
