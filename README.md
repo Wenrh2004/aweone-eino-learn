@@ -23,7 +23,7 @@ acquire new skills and knowledge in various subjects.
   the [Eino ToolsNode](https://www.cloudwego.io/docs/eino/core_modules/components/tools_node_guide/).
 - [x] **Travel Assistant**: A tutorial on how to use
   the [Eino React Agent](https://www.cloudwego.io/docs/eino/core_modules/flow_integration_components/react_agent_manual/).
-- [ ] **Travel Assistant With MCP**: A tutorial on how to use
+- [x] **Travel Assistant With MCP**: A tutorial on how to use
   the [Eino MCP](https://www.cloudwego.io/docs/eino/ecosystem/tool/tool_mcp/) with the Amap MCP Server.
 - [ ] **DeepSearcher**: A tutorial on how to use
   the [Eino Host Multi-Agent](https://www.cloudwego.io/docs/eino/core_modules/flow_integration_components/multi_agent_hosting/).
