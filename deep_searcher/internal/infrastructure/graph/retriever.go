@@ -220,7 +220,7 @@ func (r *RetrieverGraph) getCheckEnoughInfoGraph() (*compose.Graph[map[string]an
 	return graph, nil
 }
 
-func (r *RetrieverGraph) GewRetrieverGraph() (*compose.Graph[map[string]any, map[string]any], error) {
+func (r *RetrieverGraph) GetRetrieverGraph() (*compose.Graph[map[string]any, map[string]any], error) {
 	subQueryGraph, err := r.getReflectGetSubQueryGraph()
 	if err != nil {
 		return nil, err

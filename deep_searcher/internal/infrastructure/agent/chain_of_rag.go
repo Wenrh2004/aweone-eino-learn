@@ -35,7 +35,7 @@ type ChainOfRag struct {
 }
 
 func NewChainOfRag(ctx context.Context, retriever graph.RetrieverGraph, chatModel model.ChatModel) *ChainOfRag {
-	retrieverGraph, err := retriever.GewRetrieverGraph()
+	retrieverGraph, err := retriever.GetRetrieverGraph()
 	if err != nil {
 		panic(err)
 	}
