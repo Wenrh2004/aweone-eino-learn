@@ -19,6 +19,7 @@ acquire new skills and knowledge in various subjects.
 
 ## Tutorials
 
+- [x] **Chat Bot**: A simple tutorial on how to use the [Eino Chat Model](https://www.cloudwego.io/docs/eino/core_modules/components/chat_model_guide/).
 - [x] **TODO Agent**: A tutorial on how to use
   the [Eino ToolsNode](https://www.cloudwego.io/docs/eino/core_modules/components/tools_node_guide/).
 - [x] **Travel Assistant**: A tutorial on how to use
