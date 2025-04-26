@@ -3,14 +3,15 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/Wenrh2004/eino-learn-demo/adapter"
-	"github.com/Wenrh2004/eino-learn-demo/agent"
-	"github.com/Wenrh2004/eino-learn-demo/agent/utils"
-	"github.com/Wenrh2004/eino-learn-demo/config"
-	"github.com/Wenrh2004/eino-learn-demo/repository"
-	"github.com/Wenrh2004/eino-learn-demo/service"
 	"log"
 	"strconv"
+
+	"github.com/Wenrh2004/todo_agent/adapter"
+	"github.com/Wenrh2004/todo_agent/agent"
+	"github.com/Wenrh2004/todo_agent/agent/utils"
+	"github.com/Wenrh2004/todo_agent/config"
+	"github.com/Wenrh2004/todo_agent/repository"
+	"github.com/Wenrh2004/todo_agent/service"
 )
 
 func main() {

@@ -34,7 +34,7 @@ type ChainOfRag struct {
 	compose.Runnable[*schema.Message, *schema.Message]
 }
 
-func NewChainOfRag(ctx context.Context, retriever graph.RetrieverGraph, chatModel model.ChatModel) *ChainOfRag {
+func NewChainOfRag(ctx context.Context, retriever graph.RetrieverGraph, chatModel model.ToolCallingChatModel) *ChainOfRag {
 	retrieverGraph, err := retriever.GetRetrieverGraph()
 	if err != nil {
 		panic(err)

@@ -4,14 +4,15 @@ import (
 	"context"
 	"log"
 
-	"github.com/Wenrh2004/eino-learn-demo/api"
-	"github.com/Wenrh2004/eino-learn-demo/service"
 	"github.com/cloudwego/eino-ext/components/tool/duckduckgo"
 	"github.com/cloudwego/eino-ext/components/tool/duckduckgo/ddgsearch"
 	"github.com/cloudwego/eino/components/tool"
 	"github.com/cloudwego/eino/components/tool/utils"
 	"github.com/cloudwego/eino/schema"
 	"github.com/spf13/viper"
+
+	"github.com/Wenrh2004/todo_agent/api"
+	"github.com/Wenrh2004/todo_agent/service"
 )
 
 func NewTools(ctx context.Context, conf *viper.Viper, todoService service.TodoService) []tool.BaseTool {

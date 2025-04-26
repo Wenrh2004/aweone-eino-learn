@@ -10,7 +10,7 @@ import (
 
 // ChatModelService llm chat client
 type ChatModelService struct {
-	ChatModel model.ChatModel
+	ChatModel model.ToolCallingChatModel
 }
 
 // NewChatModelService DeepSeek Service client

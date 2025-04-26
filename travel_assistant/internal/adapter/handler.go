@@ -7,7 +7,6 @@ import (
 	"net/http"
 
 	"github.com/bytedance/sonic"
-	"github.com/cloudwego/eino-ext/devops"
 	"github.com/cloudwego/eino/schema"
 	"github.com/cloudwego/hertz/pkg/app"
 	"github.com/cloudwego/hertz/pkg/common/hlog"
@@ -43,9 +42,6 @@ type Message struct {
 
 func (l *LLMHandler) Chat(ctx context.Context, c *app.RequestContext) {
 	var req ChatRequest
-	if err := devops.Init(ctx); err != nil {
-		return
-	}
 	err := c.BindAndValidate(&req)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, err.Error())

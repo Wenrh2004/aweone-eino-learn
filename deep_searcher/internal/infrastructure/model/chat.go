@@ -8,7 +8,7 @@ import (
 	"github.com/spf13/viper"
 )
 
-func NewChatModel(conf *viper.Viper) model.ChatModel {
+func NewChatModel(conf *viper.Viper) model.ToolCallingChatModel {
 	ctx := context.Background()
 	chatModel, err := ark.NewChatModel(ctx, &ark.ChatModelConfig{
 		APIKey:  conf.GetString("app.llm.api_key"),
