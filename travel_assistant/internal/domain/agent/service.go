@@ -3,6 +3,7 @@ package agent
 import (
 	"context"
 
+	"github.com/cloudwego/eino-ext/devops"
 	einotool "github.com/cloudwego/eino/components/tool"
 	"github.com/cloudwego/eino/compose"
 	"github.com/cloudwego/eino/flow/agent/react"
@@ -29,6 +30,9 @@ func NewDomain(
 	weatherService *tool2.WeatherService,
 ) ChatService {
 	ctx := context.Background()
+	if err := devops.Init(ctx); err != nil {
+		panic(err)
+	}
 	poiSearchTool, err := poiService.GetPOISearchTool()
 	if err != nil {
 		panic(err)
@@ -52,7 +56,7 @@ func NewDomain(
 	agent, err := react.NewAgent(
 		ctx,
 		&react.AgentConfig{
-			Model: chatModel.ChatModel,
+			ToolCallingModel: chatModel.ChatModel,
 			ToolsConfig: compose.ToolsNodeConfig{
 				Tools: []einotool.BaseTool{
 					poiSearchTool,

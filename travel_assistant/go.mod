@@ -4,10 +4,10 @@ go 1.23.4
 
 require (
 	github.com/bytedance/sonic v1.13.2
-	github.com/cloudwego/eino v0.3.18
-	github.com/cloudwego/eino-ext/components/model/ark v0.1.5
+	github.com/cloudwego/eino v0.3.27
+	github.com/cloudwego/eino-ext/components/model/ark v0.1.7
 	github.com/cloudwego/eino-ext/devops v0.1.7
-	github.com/cloudwego/hertz v0.9.6
+	github.com/cloudwego/hertz v0.9.7
 	github.com/google/wire v0.6.0
 	github.com/hertz-contrib/sse v0.1.0
 	github.com/natefinch/lumberjack v2.0.0+incompatible
@@ -58,7 +58,7 @@ require (
 	github.com/tidwall/pretty v1.2.0 // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
 	github.com/volcengine/volc-sdk-golang v1.0.23 // indirect
-	github.com/volcengine/volcengine-go-sdk v1.0.185 // indirect
+	github.com/volcengine/volcengine-go-sdk v1.1.4 // indirect
 	github.com/yargevad/filepathx v1.0.0 // indirect
 	go.uber.org/multierr v1.10.0 // indirect
 	golang.org/x/arch v0.11.0 // indirect

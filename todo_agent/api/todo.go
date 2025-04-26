@@ -1,6 +1,6 @@
 package api
 
-import "github.com/Wenrh2004/eino-learn-demo/model"
+import "github.com/Wenrh2004/todo_agent/model"
 
 const (
 	StatusTodo = false

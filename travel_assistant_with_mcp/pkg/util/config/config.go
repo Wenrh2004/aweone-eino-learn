@@ -42,13 +42,13 @@ type ServerConfig struct {
 }
 
 func GetServerConfig(conf *viper.Viper, logger *log.Logger) (*MCPConfig, error) {
-	confPath := conf.GetString("app.mcp.config")
+	confPath := conf.GetString("app.mcp.server.config")
 	if confPath == "" {
 		homeDir, err := os.UserHomeDir()
 		if err != nil {
 			panic(err)
 		}
-		confPath = filepath.Join(homeDir, ".mcp.json")
+		confPath = filepath.Join(homeDir, "mcp.json")
 	}
 	// Check if config file exists
 	if _, err := os.Stat(confPath); os.IsNotExist(err) {

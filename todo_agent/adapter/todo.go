@@ -3,13 +3,15 @@ package adapter
 import (
 	"context"
 	"fmt"
-	"github.com/Wenrh2004/eino-learn-demo/api"
-	"github.com/Wenrh2004/eino-learn-demo/service"
-	"github.com/cloudwego/eino/compose"
-	"github.com/cloudwego/eino/schema"
 	"log"
 	"strconv"
 	"time"
+
+	"github.com/cloudwego/eino/compose"
+	"github.com/cloudwego/eino/schema"
+
+	"github.com/Wenrh2004/todo_agent/api"
+	"github.com/Wenrh2004/todo_agent/service"
 )
 
 type TodoAdapter interface {

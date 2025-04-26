@@ -2,9 +2,11 @@ package service
 
 import (
 	"context"
-	"github.com/Wenrh2004/eino-learn-demo/api"
-	"github.com/Wenrh2004/eino-learn-demo/repository"
+
 	"github.com/bytedance/sonic"
+
+	"github.com/Wenrh2004/todo_agent/api"
+	"github.com/Wenrh2004/todo_agent/repository"
 )
 
 var todo *todoService
